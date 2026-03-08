@@ -1,0 +1,2 @@
+CREATE DATABASE metastore;
+CREATE DATABASE job_hunter;

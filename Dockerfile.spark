@@ -1,0 +1,62 @@
+FROM public.ecr.aws/bitnami/spark:3.5
+
+USER root
+
+# Install bash
+RUN install_packages bash
+
+# Install SSH server
+RUN install_packages openssh-server
+
+# Create SSH directory and set up key-based auth
+RUN mkdir -p /var/run/sshd \
+    && mkdir -p /root/.ssh \
+    && chmod 700 /root/.ssh
+
+# Generate SSH host keys
+RUN ssh-keygen -A
+
+# Set root password (for simplicity in dev)
+RUN echo "root:sparkroot" | chpasswd
+
+# Allow root login via SSH
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
+    && sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
+
+# Start SSH daemon on container start
+RUN echo "#!/bin/bash\n/usr/sbin/sshd\nexec \"\$@\"" > /entrypoint-ssh.sh \
+    && chmod +x /entrypoint-ssh.sh
+
+# ... rest of your existing Dockerfile (jars, playwright, etc.)
+RUN install_packages \
+    curl wget xvfb \
+    libnss3 libatk1.0-0 libatk-bridge2.0-0 \
+    libcups2 libdrm2 libxkbcommon0 libxcomposite1 \
+    libxdamage1 libxfixes3 libxrandr2 libgbm1 \
+    libasound2 libpango-1.0-0 libcairo2 \
+    fonts-liberation libappindicator3-1 xdg-utils
+
+RUN pip install --no-cache-dir \
+    "camoufox[geoip]" \
+    great_expectations==0.18.19 \
+    curl_cffi \
+    minio boto3 pyiceberg s3fs pyspark \
+    playwright==1.58.0 \
+    playwright-stealth==1.0.6
+
+RUN python -m camoufox fetch
+
+ENV PLAYWRIGHT_BROWSERS_PATH=/opt/playwright-browsers
+RUN playwright install chromium \
+    && playwright install-deps chromium \
+    && chmod -R 777 /opt/playwright-browsers
+
+WORKDIR /opt/bitnami/spark/jars
+RUN curl -O https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.4/hadoop-aws-3.3.4.jar \
+    && curl -O https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.12.262/aws-java-sdk-bundle-1.12.262.jar \
+    && curl -O https://repo1.maven.org/maven2/org/apache/iceberg/iceberg-spark-runtime-3.5_2.12/1.5.0/iceberg-spark-runtime-3.5_2.12-1.5.0.jar
+
+WORKDIR /app
+
+# Start SSH on launch
+CMD ["/bin/bash", "-c", "/usr/sbin/sshd && /opt/bitnami/scripts/spark/entrypoint.sh /opt/bitnami/scripts/spark/run.sh"]

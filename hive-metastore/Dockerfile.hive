@@ -1,0 +1,20 @@
+# Dockerfile for Hive Metastore with PostgreSQL and S3A support
+# Place this file at: ./hive-metastore/Dockerfile
+
+FROM apache/hive:4.0.0
+
+# Download PostgreSQL JDBC driver
+USER root
+RUN curl -L https://jdbc.postgresql.org/download/postgresql-42.7.1.jar \
+    -o /opt/hive/lib/postgresql-jdbc.jar
+
+# Copy Hive configuration with S3A settings
+COPY hive-site.xml /opt/hive/conf/hive-site.xml
+
+# Ensure correct permissions
+RUN chown -R hive:hive /opt/hive/lib /opt/hive/conf
+
+USER hive
+
+# Default command (starts metastore)
+CMD ["hive", "--service", "metastore"]

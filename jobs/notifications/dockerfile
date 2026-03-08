@@ -1,0 +1,10 @@
+# ./jobs/notifications/Dockerfile
+FROM python:3.11-slim
+
+WORKDIR /app
+
+RUN pip install discord.py==2.3.2 python-dotenv==1.0.1 trino==0.327.0 pandas==2.2.0 tabulate==0.9.0
+
+COPY discord_bot.py .
+
+CMD ["python", "discord_bot.py"]
