@@ -55,3 +55,5 @@ DISCORD_WEBHOOK_URL=your_discord_webhook_url
 ![Data Lakehouse Architecture](./images/Discordbot.png)
 ![Data Lakehouse Architecture](./images/Discordbot2.png)
 
+## Dags of jobs
+
