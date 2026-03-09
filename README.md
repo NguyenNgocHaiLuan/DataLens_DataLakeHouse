@@ -49,9 +49,18 @@ Create a `.env` file in the root directory and add your secret keys (DO NOT comm
 ```env
 DISCORD_TOKEN=your_discord_bot_token
 DISCORD_WEBHOOK_URL=your_discord_webhook_url
+POSTGRES_DB = your_postgres_db
+POSTGRES_USER=your_postgres_db
+POSTGRES_PASSWORD=your_postgres_db
+MINIO_ROOT_USER= your_minio_user
+MINIO_ROOT_PASSWORD= your_minio_password
+MB_DB_USER= your_MB_DB_USER
+MB_DB_PASS= your_MB_DB_PASS
 ```
 
 ## 🤖 Discord bot jobs post
 ![Data Lakehouse Architecture](./images/Discordbot.png)
 ![Data Lakehouse Architecture](./images/Discordbot2.png)
+
+## Dags of jobs
 
