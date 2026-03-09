@@ -66,6 +66,8 @@ Create a '.xml' file to store configuration settings:
         <name>javax.jdo.option.ConnectionDriverName</name>
         <value>org.postgresql.Driver</value>
     </property>
+   ... your_property
+</configuration>
 ```
 
 ## 🤖 Discord bot jobs post
