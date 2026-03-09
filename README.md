@@ -1,4 +1,4 @@
-# 🚀 DataLens Data Lakehouse: Vietnam IT Job Market
+<img width="512" height="512" alt="image" src="https://github.com/user-attachments/assets/490409db-10d6-4ee7-8458-cc1975c2a9e0" /># 🚀 DataLens Data Lakehouse: Vietnam IT Job Market
 
 ![Data Engineering](https://img.shields.io/badge/Data_Engineering-Fresher_Project-blue)
 ![Apache Spark](https://img.shields.io/badge/Apache_Spark-3.5-E25A1C)
@@ -20,6 +20,7 @@ This is an End-to-End Data Engineering portfolio project. It automatically scrap
 4. **Orchestration:** **Apache Airflow** schedules and monitors the entire pipeline.
 5. **Serving / Notification:** - A **Discord Bot** queries Trino directly to push daily market reports and VIP job alerts to users.
    - **Metabase** is connected to Trino for building visual dashboards.
+## 🎯 Technical Objective
 
 ## 🛠️ Tech Stack
 * **Languages:** Python, SQL
@@ -31,6 +32,8 @@ This is an End-to-End Data Engineering portfolio project. It automatically scrap
 * **Orchestration:** Apache Airflow
 * **Infrastructure:** Docker, Docker Compose
 * **Notification/BI:** Discord API, Metabase
+
+## Project Objectives
 
 ## 🚀 How to Run Locally
 
