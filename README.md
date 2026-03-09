@@ -21,6 +21,12 @@ This is an End-to-End Data Engineering portfolio project. It automatically scrap
 5. **Serving / Notification:** - A **Discord Bot** queries Trino directly to push daily market reports and VIP job alerts to users.
    - **Metabase** is connected to Trino for building visual dashboards.
 
+## 🎯 Technical Objective
+* **Architecture:** Designed and deployed a complete, scalable, end-to-end Data Lakehouse system from scratch.
+* **Data Processing:** Implemented the Medallion Architecture (Bronze - Silver - Gold) using Apache Spark to clean, standardize, and aggregate data efficiently.
+* **Data Quality:** Integrated Great Expectations to ensure data integrity, automatically filtering and quarantining invalid or corrupted records at the ingestion stage.
+* **Orchestration & serving:** Automated and scheduled the daily data pipeline using Apache Airflow, and utilized Trino as a high-performance query engine for fast data retrieval.
+
 ## 🛠️ Tech Stack
 * **Languages:** Python, SQL
 * **Data Processing:** Apache Spark (PySpark)
@@ -43,4 +49,9 @@ Create a `.env` file in the root directory and add your secret keys (DO NOT comm
 ```env
 DISCORD_TOKEN=your_discord_bot_token
 DISCORD_WEBHOOK_URL=your_discord_webhook_url
+```
+
+## 🤖 Discord bot jobs post
+![Data Lakehouse Architecture](./images/Discordbot.png)
+![Data Lakehouse Architecture](./images/Discordbot2.png)
 
