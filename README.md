@@ -38,8 +38,6 @@ This is an End-to-End Data Engineering portfolio project. It automatically scrap
 * **Infrastructure:** Docker, Docker Compose
 * **Notification/BI:** Discord API, Metabase
 
-## Project Objectives
-
 ## 🚀 How to Run Locally
 
 ### 1. Prerequisites
