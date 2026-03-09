@@ -58,9 +58,22 @@ MB_DB_USER= your_MB_DB_USER
 MB_DB_PASS= your_MB_DB_PASS
 ```
 
+Create a '.xml' file to store configuration settings:
+```xml
+<?xml version="1.0"?>
+<configuration>
+    <property>
+        <name>javax.jdo.option.ConnectionDriverName</name>
+        <value>org.postgresql.Driver</value>
+    </property>
+```
+
 ## 🤖 Discord bot jobs post
 ![Data Lakehouse Architecture](./images/Discordbot.png)
 ![Data Lakehouse Architecture](./images/Discordbot2.png)
 
 ## Dags of jobs
 ![Dags of jobs](./images/dags_of_jobs.png)
+
+## Metabase Jobs DashBoard
+
