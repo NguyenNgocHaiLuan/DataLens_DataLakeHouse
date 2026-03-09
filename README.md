@@ -49,6 +49,7 @@ Create a `.env` file in the root directory and add your secret keys (DO NOT comm
 ```env
 DISCORD_TOKEN=your_discord_bot_token
 DISCORD_WEBHOOK_URL=your_discord_webhook_url
+```
 
 ## 🤖 Discord bot jobs post
 ![Data Lakehouse Architecture](./images/Discordbot.png)
