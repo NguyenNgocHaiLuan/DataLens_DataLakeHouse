@@ -1,4 +1,4 @@
-<img width="512" height="512" alt="image" src="https://github.com/user-attachments/assets/490409db-10d6-4ee7-8458-cc1975c2a9e0" /># 🚀 DataLens Data Lakehouse: Vietnam IT Job Market
+# 🚀 DataLens Data Lakehouse: Vietnam IT Job Market
 
 ![Data Engineering](https://img.shields.io/badge/Data_Engineering-Fresher_Project-blue)
 ![Apache Spark](https://img.shields.io/badge/Apache_Spark-3.5-E25A1C)
@@ -21,7 +21,11 @@ This is an End-to-End Data Engineering portfolio project. It automatically scrap
 5. **Serving / Notification:** - A **Discord Bot** queries Trino directly to push daily market reports and VIP job alerts to users.
    - **Metabase** is connected to Trino for building visual dashboards.
 ## 🎯 Technical Objective
-
+* **Architecture:** Designed and deployed a complete, scalable, end-to-end Data Lakehouse system from scratch.
+* **Data Processing:** Implemented the Medallion Architecture (Bronze - Silver - Gold) using Apache Spark to clean, standardize, and aggregate data efficiently.
+* **Data Quality:** Integrated Great Expectations to ensure data integrity, automatically filtering and quarantining invalid or corrupted records at the ingestion stage.
+* **Orchestration & serving:** Automated and scheduled the daily data pipeline using Apache Airflow, and utilized Trino as a high-performance query engine for fast data retrieval.
+* 
 ## 🛠️ Tech Stack
 * **Languages:** Python, SQL
 * **Data Processing:** Apache Spark (PySpark)
