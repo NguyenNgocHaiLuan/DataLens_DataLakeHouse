@@ -50,3 +50,8 @@ Create a `.env` file in the root directory and add your secret keys (DO NOT comm
 DISCORD_TOKEN=your_discord_bot_token
 DISCORD_WEBHOOK_URL=your_discord_webhook_url
 
+### 3. Start the Infrastructure
+Start the Data Lakehouse system
+```env
+docker-compose up -d
+
