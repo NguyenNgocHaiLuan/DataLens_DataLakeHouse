@@ -63,4 +63,4 @@ MB_DB_PASS= your_MB_DB_PASS
 ![Data Lakehouse Architecture](./images/Discordbot2.png)
 
 ## Dags of jobs
-
+![Dags of jobs](./images/dags_of_jobs.png)
