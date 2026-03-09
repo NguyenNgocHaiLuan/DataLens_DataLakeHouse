@@ -10,7 +10,7 @@
 This is an End-to-End Data Engineering portfolio project. It automatically scrapes IT job listings in Vietnam (ITviec, TopCV), processes the data through a Medallion Architecture (Bronze -> Silver -> Gold) using Apache Spark and Apache Iceberg, and visualizes market insights. The pipeline also includes a Discord Bot for real-time high-salary job alerts.
 
 ## 🏗️ Architecture & Data Flow
-![Data Lakehouse Architecture](./assets/architecture.png)
+![Data Lakehouse Architecture](./images/Architecture.png)
 1. **Ingestion (Crawlers):** Python bots (using `camoufox`/`curl_cffi` to bypass Cloudflare) scrape job data daily and upload raw JSON files to MinIO.
 2. **Data Lakehouse (Medallion Architecture):**
    - **Bronze Layer (Raw):** Stores raw JSON data in MinIO.
