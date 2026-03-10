@@ -13,9 +13,9 @@ This is an End-to-End Data Engineering portfolio project. It automatically scrap
 ![Data Lakehouse Architecture](./images/Architecture.png)
 1. **Ingestion (Crawlers):** Python bots (using `camoufox`/`curl_cffi` to bypass Cloudflare) scrape job data daily and upload raw JSON files to MinIO.
 2. **Data Lakehouse (Medallion Architecture):**
-   - **Bronze Layer (Raw):** Stores raw JSON data in MinIO.
-   - **Silver Layer (Transform):** PySpark flattens nested JSON, standardizes data types, and runs Data Quality checks using **Great Expectations**. Invalid records are sent to a quarantine path. Valid data is written in Apache Iceberg format.
-   - **Gold Layer (Aggregated):** PySpark aggregates data to calculate average salaries by location, extracts skill tags, and prepares fact/dimension tables for reporting.
+   - **Bronze Layer (Raw):** Stores raw JSON data in MinIO. Great Expectations validates and filters dirty records to quarantine.
+   - **Silver Layer (Transform):** PySpark flattens nested JSON, standardizes salary, location, deduplicates.
+   - **Gold Layer (Aggregated):** PySpark aggregates summary, salary alerts, ITviec job listings for serving.
 3. **Query Engine:** **Trino** connects to the Iceberg tables (via Hive Metastore) to provide high-performance SQL querying over the data lake.
 4. **Orchestration:** **Apache Airflow** schedules and monitors the entire pipeline.
 5. **Serving / Notification:** - A **Discord Bot** queries Trino directly to push daily market reports and VIP job alerts to users.
