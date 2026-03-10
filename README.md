@@ -83,3 +83,16 @@ Create a '.xml' file to store configuration settings:
 ![Metabase Dashboard](./images/Metabase.png)
 
 ⚠️This project is for educational purposes only and is intended to showcase my skills on my CV.
+
+## 🤝 Let's Connect!
+
+This project is a significant milestone in my journey as a **Data Engineer**. Building this End-to-End Lakehouse from scratch has solidified my skills in distributed processing, data orchestration, and system architecture.
+
+I am currently open to **Fresher Data Engineer** opportunities. If you find this project interesting, have any feedback, or want to discuss data architectures, I would love to connect with you!
+
+* 💼 **LinkedIn:** [(https://www.linkedin.com/in/h%E1%BA%A3i-lu%C3%A2n-nguy%E1%BB%85n-ng%E1%BB%8Dc-67098531a/)]
+* 📧 **Email:** [nguyenngochailuan16112003@gmail.com]
+
+### 🌟 Explore More
+If you liked this project, feel free to check out my other Data Engineering works on my profile:
+* ⚡ **[Binance_API_DataLakhouse]** - Real-time Data Pipeline with Kafka & Spark Streaming.
