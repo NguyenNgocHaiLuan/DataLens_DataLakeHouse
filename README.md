@@ -78,4 +78,8 @@ Create a '.xml' file to store configuration settings:
 ![Dags of jobs](./images/dags_of_jobs.png)
 
 ## Metabase Jobs DashBoard
+![Metabase Dashboard](./images/Metabase_dashboard.png)
+![Metabase Dashboard](./images/Metabase_job_itviec.png)
+![Metabase Dashboard](./images/Metabase.png)
 
+⚠️This project is for educational purposes only and is intended to showcase my skills on my CV.
