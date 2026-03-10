@@ -58,7 +58,7 @@ MB_DB_USER= your_MB_DB_USER
 MB_DB_PASS= your_MB_DB_PASS
 ```
 
-Create a '.xml' file to store configuration settings:
+Create a 'hive-site.xml' file to store configuration settings:
 ```xml
 <?xml version="1.0"?>
 <configuration>
@@ -69,6 +69,13 @@ Create a '.xml' file to store configuration settings:
    ... your_property
 </configuration>
 ```
+
+### 3. Start Services
+docker-compose up -d
+
+### 4. Trigger Pipeline
+Click Airflow UI: http://locahost:8080
+Enable DAG: job_hunter_pipline
 
 ## 🤖 Discord bot jobs post
 ![Data Lakehouse Architecture](./images/Discordbot.png)
