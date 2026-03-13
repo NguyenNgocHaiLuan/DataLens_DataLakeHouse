@@ -3,6 +3,16 @@ from pyspark.sql.functions import (
     col, avg, count, max as spark_max,
     current_date, round as spark_round,
 )
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+MINIO_CONF = {
+    "endpoint": os.getenv("MINIO_ENDPOINT"), 
+    "access_key": os.getenv("MINIO_ACCESS_KEY"),
+    "secret_key": os.getenv("MINIO_SECRET_KEY")
+}
 
 SOURCE_TABLE = "demo.silver.jobs"
 
@@ -23,9 +33,9 @@ def create_spark_session() -> SparkSession:
         .config("spark.sql.catalog.demo.type", "hive")
         .config("spark.sql.catalog.demo.uri", "thrift://hive-metastore:9083")
         .config("spark.sql.catalog.demo.warehouse", "s3a://warehouse/")
-        .config("spark.hadoop.fs.s3a.endpoint", "http://minio:9000")
-        .config("spark.hadoop.fs.s3a.access.key", "minio_admin")
-        .config("spark.hadoop.fs.s3a.secret.key", "minio_password")
+        .config("spark.hadoop.fs.s3a.endpoint", MINIO_CONF["endpoint"])
+        .config("spark.hadoop.fs.s3a.access.key", MINIO_CONF["access_key"])
+        .config("spark.hadoop.fs.s3a.secret.key", MINIO_CONF["secret_key"])
         .config("spark.hadoop.fs.s3a.path.style.access", "true")
         .config("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem")
         .config("spark.hadoop.fs.s3a.connection.ssl.enabled", "false")

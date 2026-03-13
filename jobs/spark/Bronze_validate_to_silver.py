@@ -5,6 +5,15 @@ from pyspark.sql.functions import (
     col, input_file_name, current_timestamp, lit, explode, to_json
 )
 import great_expectations as gx
+from dotenv import load_dotenv
+
+load_dotenv()
+
+MINIO_CONF = {
+    "endpoint": os.getenv("MINIO_ENDPOINT"), 
+    "access_key": os.getenv("MINIO_ACCESS_KEY"),
+    "secret_key": os.getenv("MINIO_SECRET_KEY")
+}
 
 INPUT_PATH  = "s3a://data-lake/*/*/*.json"
 OUTPUT_PATH = "s3a://warehouse/bronze/jobs/"
@@ -19,9 +28,9 @@ def create_spark_session() -> SparkSession:
         SparkSession.builder
         .appName("JobHunter_Bronze_Validation")
         .config("spark.jars.packages", ",".join(packages))
-        .config("spark.hadoop.fs.s3a.endpoint","http://minio:9000")
-        .config("spark.hadoop.fs.s3a.access.key","minio_admin")
-        .config("spark.hadoop.fs.s3a.secret.key","minio_password")
+        .config("spark.hadoop.fs.s3a.endpoint", MINIO_CONF["endpoint"])
+        .config("spark.hadoop.fs.s3a.access.key", MINIO_CONF["access_key"])
+        .config("spark.hadoop.fs.s3a.secret.key", MINIO_CONF["secret_key"])
         .config("spark.sql.catalog.demo", "org.apache.iceberg.spark.SparkCatalog")
         .config("spark.sql.catalog.demo.type", "hive")
         .config("spark.sql.catalog.demo.uri", "thrift://hive-metastore:9083")
